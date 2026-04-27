@@ -1,0 +1,15 @@
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  script:
+    - echo "Checking portfolio files..."
+    - ls
+    - echo "Build OK"
+
+deploy:
+  stage: deploy
+  script:
+    - echo "Deploy to Minikube will be configured with GitLab Runner"
