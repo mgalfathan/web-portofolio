@@ -1,15 +1,13 @@
-stages:
-  - build
-  - deploy
-
-build:
-  stage: build
-  script:
-    - echo "Checking portfolio files..."
-    - ls
-    - echo "Build OK"
-
-deploy:
+pages:
   stage: deploy
   script:
-    - echo "Deploy to Minikube will be configured with GitLab Runner"
+    - mkdir public
+    - cp index.html public/
+    - cp style.css public/
+    - cp script.js public/ || true
+    - cp CV.pdf public/ || true
+  artifacts:
+    paths:
+      - public
+  only:
+    - main
